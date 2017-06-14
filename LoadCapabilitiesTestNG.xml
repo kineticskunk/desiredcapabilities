@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<listeners>
+		<listener class-name="org.testng.reporters.EmailableReporter2" />
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+	</listeners>
+
+	<!-- <parameter name="remoteWebDriver" value="false"/> <parameter name="gridURL" 
+		value="http://127.0.0.1:4444"/> <parameter name="host" value="localhost"/> 
+		<parameter name="port" value="27017"/> <parameter name="dbName" value="WebDriverConfigDB"/> 
+		<parameter name="collectionName" value="webDriverCollection"/> -->
+
+
+	<!-- <test name="Load FireFox DesiredCapabilities"> <parameter name="browserType" 
+		value="firefox" /> <parameter name="desiredCapabilitiesConfigJSON" value="desiredcapabilties.json" 
+		/> <classes> <class name="com.kineticskunk.auto.webdriverfactory.LoadDesiredCapabilitiesTestNG" 
+		/> </classes> </test> -->
+
+	<test name="Load Chrome DesiredCapabilities">
+		<parameter name="browserType" value="chrome" />
+		<parameter name="desiredCapabilitiesConfigJSON" value="desiredcapabilties.json" />
+		<classes>
+			<class
+				name="com.kineticskunk.auto.webdriverfactory.LoadDesiredCapabilitiesTestNG" />
+		</classes>
+	</test>
+	<test name="Load Opera DesiredCapabilities">
+		<parameter name="browserType" value="opera" />
+		<parameter name="desiredCapabilitiesConfigJSON" value="desiredcapabilties.json" />
+		<classes>
+			<class
+				name="com.kineticskunk.auto.webdriverfactory.LoadDesiredCapabilitiesTestNG" />
+		</classes>
+	</test>
+
+</suite> <!-- Suite -->
