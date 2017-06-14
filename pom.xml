@@ -275,10 +275,7 @@
 						</property>
 					</systemProperties>
 					<suiteXmlFiles>
-						<suiteXmlFile>DriverFactoryTestNG.xml</suiteXmlFile>
-						<!--<suiteXmlFile>individual_applicant_kyc_maven_test.xml</suiteXmlFile> 
-							<suiteXmlFile>demo_email_validation_maven_test.xml</suiteXmlFile> <suiteXmlFile>email_validation_maven.xml</suiteXmlFile> 
-							<suiteXmlFile>tradedesk_landing_page_test_maven.xml</suiteXmlFile> <suiteXmlFile>tradedesk_demo_account_test_maven.xml</suiteXmlFile> -->
+						<suiteXmlFile>DesiredCapabilitiesTestNG.xml</suiteXmlFile>
 					</suiteXmlFiles>
 					<properties>
 						<property>

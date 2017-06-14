@@ -15,7 +15,7 @@
 
 	<!-- <test name="Load FireFox DesiredCapabilities"> <parameter name="browserType" 
 		value="firefox" /> <parameter name="desiredCapabilitiesConfigJSON" value="desiredcapabilties.json" 
-		/> <classes> <class name="com.kineticskunk.auto.webdriverfactory.LoadDesiredCapabilitiesTestNG" 
+		/> <classes> <class name="com.kineticskunk.auto.desiredcapabilities.LoadDesiredCapabilitiesTestNG" 
 		/> </classes> </test> -->
 
 	<test name="Load Chrome DesiredCapabilities">
@@ -23,7 +23,7 @@
 		<parameter name="desiredCapabilitiesConfigJSON" value="desiredcapabilties.json" />
 		<classes>
 			<class
-				name="com.kineticskunk.auto.webdriverfactory.LoadDesiredCapabilitiesTestNG" />
+				name="com.kineticskunk.auto.desiredcapabilities.LoadDesiredCapabilitiesTestNG" />
 		</classes>
 	</test>
 	<test name="Load Opera DesiredCapabilities">
@@ -31,7 +31,7 @@
 		<parameter name="desiredCapabilitiesConfigJSON" value="desiredcapabilties.json" />
 		<classes>
 			<class
-				name="com.kineticskunk.auto.webdriverfactory.LoadDesiredCapabilitiesTestNG" />
+				name="com.kineticskunk.auto.desiredcapabilities.LoadDesiredCapabilitiesTestNG" />
 		</classes>
 	</test>
 

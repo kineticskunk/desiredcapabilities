@@ -1,0 +1,113 @@
+{
+	"configloadingsetting": {
+		"loadproxy": false,
+		"loadfirefoxprofilepreferences": true,
+		"loadfirefoxextensions": false,
+		"loadfirebug": false,
+		"loadnetworkproxy": false,
+		"loadloggingprefs": true
+	},
+	"browserdisplaysettings": {
+		"bringtofront": true,
+		"resize": true
+	},
+	"commondesiredcapabilities": {
+		"acceptSslCerts": true,
+		"platform": "any",
+		"javascriptEnabled": true,
+		"takesScreenshot": true,
+		"handlesAlerts": true,
+		"databaseEnabled": true,
+		"locationContextEnabled": true,
+		"applicationCacheEnabled": true,
+		"browserConnectionEnabled": true,
+		"cssSelectorsEnabled": true,
+		"rotatable": false,
+		"webStorageEnabled": true,
+		"acceptSSLCerts": true,
+		"nativeEvents": true,
+		"unexpectedAlertBehavior": "dismiss",
+		"pageLoadingStrategy": "normal",
+		"elementScrollBehavior": 0
+	},
+	"proxyserverconfiguration": {
+		"useproxy": true,
+		"usesocksproxy": false,
+		"usenetworkproxy": false,
+		"useautoconfigurl": false,
+		"autodetect": false,
+		"autoconfigurl": "",
+		"proxy": {
+			"httpproxy": "localhost:8080",
+			"sslproxy": "localhos:8080",
+			"ftpproxy": "localhost:8080"
+		},
+		"socks": {
+			"socksproxy": "",
+			"socksusername": "",
+			"sockspassword": ""
+		}
+	},
+	"loggingPrefs": {
+		"browserloglevel": "ALL",
+		"clientloglevel": "OFF",
+		"driverloglevel": "OFF",
+		"performanceloglevel": "OFF",
+		"profileloglevel": "OFF",
+		"serverloglevel": "OFF"
+	},
+	"remotewebdriver": {
+		"useremotewebdriver": false,
+		"ipaddress": "0.0.0.0",
+		"port": 4327
+	},
+	"firefoxdesiredcapabilities": {
+		"marionette": true,
+		"firefox_binary": "/Users/yodaqua/ks-test-automation/firefox-lib/FirefoxNightly.app/Contents/MacOS/firefox-bin",
+		"version": "55.0a1"
+	},
+	"firefoxprofilepreferences": {
+		"always.load.no.focus.lib": true,
+		"assume.untrusted.certificate.issuer": true,
+		"browser.cache.disk.enable": true,
+		"browser.download.dir": "/Users/yodaqua/ks-test-automation/download-lib/",
+		"browser.download.folderList": 2,
+		"browser.download.manager.alertOnEXEOpen": false,
+		"browser.download.manager.closeWhenDone": true,
+		"browser.download.manager.focusWhenStarting": false,
+		"browser.download.manager.showAlertOnComplete": false,
+		"browser.download.manager.showWhenStarting": false,
+		"browser.download.manager.useWindow": false,
+		"browser.helperApps.alwaysAsk.force": false,
+		"browser.helperApps.neverAsk.openFile": "text/csv,application/excel,image/png,image/jpeg,text/html,text/plain,application/msword,application/xml,application/zip",
+		"browser.helperApps.neverAsk.saveToDisk": "text/csv,application/excel,image/png,image/jpeg,text/html,text/plain,application/msword,application/xml,application/zip",
+		"enable.native.events": true,
+		"network.proxy.type": 1,
+		"network.proxy.http": "localhost",
+		"network.proxy.http_port": 8080,
+		"network.proxy.ssl": "localhost",
+		"network.proxy.ssl_port": 8080,
+		"firefoxextensions": [
+			{
+				"extension": "firebug-3.0.0-alpha.14.xpi",
+				"preferences": {
+					"extensions.firebug.currentVersion": "3.0.0-alpha.14",
+					"extensions.firebug.console.enableSites": true,
+					"extensions.firebug.script.enableSites": true,
+					"extensions.firebug.defaultPanelName": "HTML",
+					"extensions.firebug.net.enableSites": true,
+					"extensions.firebug.allPagesActivation": "on",
+					"extensions.firebug.cookies.enableSites": true
+				}
+			}
+		]
+	},
+	"chromeoptionsarguments": {
+		"argument0": "start-maximized",
+		"argument1": "ignore-certificate-errors",
+		"argument2": "--new-window"
+	},
+	"chromeperferences": {
+		"profile.password_manager_enabled": false
+	}
+}
