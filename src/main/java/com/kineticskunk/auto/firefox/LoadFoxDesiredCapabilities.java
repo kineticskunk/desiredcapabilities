@@ -1,4 +1,4 @@
-package com.kineticskunk.auto.desiredcapabilities;
+package com.kineticskunk.auto.firefox;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +18,8 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import com.kineticskunk.auto.desiredcapabilities.DesiredCapabilityException;
+import com.kineticskunk.auto.desiredcapabilities.PlatformOperatingSystem;
 import com.kineticskunk.auto.loggingpreferences.WebDriverLoggingPreferences;
 import com.kineticskunk.utilities.ApplicationProperties;
 import com.kineticskunk.utilities.Converter;
@@ -211,8 +213,6 @@ public class LoadFoxDesiredCapabilities {
 		UNEXPECTED_ALERT_BEHAVIOUR,
 		VERSION;
 	}
-
-	
 
 	protected void setDesiredCapability(String capabilityType, String capabilityValue) {
 		try {

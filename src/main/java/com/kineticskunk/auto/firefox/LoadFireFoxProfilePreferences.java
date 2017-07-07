@@ -1,4 +1,4 @@
-package com.kineticskunk.auto.desiredcapabilities;
+package com.kineticskunk.auto.firefox;
 
 import java.io.File;
 import java.io.IOException;

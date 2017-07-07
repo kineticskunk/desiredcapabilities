@@ -192,7 +192,7 @@
 				<artifactId>maven-deploy-plugin</artifactId>
 				<version>2.8.1</version>
 				<configuration>
-					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/${mvn.repo.branc}</altDeploymentRepository>
+					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/${mvn.repo.branch}</altDeploymentRepository>
 				</configuration>
 			</plugin>
 			<plugin>

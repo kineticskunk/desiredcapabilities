@@ -2,7 +2,7 @@ package com.kineticskunk.auto.desiredcapabilities;
 
 import org.testng.annotations.Test;
 
-import com.kineticskunk.auto.desiredcapabilities.LoadFireFoxProfilePreferences;
+import com.kineticskunk.auto.firefox.LoadFireFoxProfilePreferences;
 
 import java.io.File;
 import java.io.FileNotFoundException;

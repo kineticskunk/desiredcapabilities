@@ -38,6 +38,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import com.kineticskunk.auto.firefox.LoadFireFoxProfilePreferences;
 import com.kineticskunk.auto.loggingpreferences.WebDriverLoggingPreferences;
 import com.kineticskunk.auto.proxy.WebDriverProxy;
 import com.kineticskunk.utilities.Converter;
@@ -119,18 +120,22 @@ public class LoadDesiredCapabilities {
 			this.logger.error(LOADDESIREDCAPABILITIES, "Resources file " + (char)34 + desiredCapabilitiesConfigJSON + (char)34 + " does not exist.");
 			this.logger.debug(LOADDESIREDCAPABILITIES, "Localized message = " + e.getLocalizedMessage());
 			this.logger.debug(LOADDESIREDCAPABILITIES, "Cause = " + e.getCause().getMessage());
+			e.printStackTrace();
 		} catch (IOException e) {
 			this.logger.error(LOADDESIREDCAPABILITIES, "Resources file " + (char)34 + desiredCapabilitiesConfigJSON + (char)34 + " caused an IO error.");
 			this.logger.debug(LOADDESIREDCAPABILITIES, "Localized message = " + e.getLocalizedMessage());
 			this.logger.debug(LOADDESIREDCAPABILITIES, "Cause = " + e.getCause().getMessage());
+			e.printStackTrace();
 		} catch (ParseException e) {
 			this.logger.error(LOADDESIREDCAPABILITIES, "Resources file " + (char)34 + desiredCapabilitiesConfigJSON + (char)34 + " could not be parsed as a JSON file.");
 			this.logger.debug(LOADDESIREDCAPABILITIES, "Localized message = " + e.getLocalizedMessage());
-			this.logger.debug(LOADDESIREDCAPABILITIES, "Cause = " + e.getCause().getMessage());
+			this.logger.debug(LOADDESIREDCAPABILITIES, "ParseException.Cause = " + e.getCause().getMessage());
+			e.printStackTrace();
 		} catch (Exception e) {
 			this.logger.error(LOADDESIREDCAPABILITIES, "Resources file " + (char)34 + desiredCapabilitiesConfigJSON + (char)34 + " could not be parsed as a JSON file.");
 			this.logger.debug(LOADDESIREDCAPABILITIES, "Localized message = " + e.getLocalizedMessage());
-			this.logger.debug(LOADDESIREDCAPABILITIES, "Cause = " + e.getCause().getMessage());
+			this.logger.debug(LOADDESIREDCAPABILITIES, "Exception.Cause = " + e.getCause().getMessage());
+			e.printStackTrace();
 		}
 	}
 
