@@ -13,11 +13,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.kineticskunk.auto.desiredcapabilities.LoadDesiredCapabilities;
-
 public class ConfigurationLoader {
 	
-	private final Logger logger = LogManager.getLogger(LoadDesiredCapabilities.class.getName());
+	private final Logger logger = LogManager.getLogger(ConfigurationLoader.class.getName());
 	private final Marker CONFIGURATIONLOADER = MarkerManager.getMarker("CONFIGURATIONLOADER");
 	
 	private JSONParser parser = new JSONParser();
@@ -39,6 +37,15 @@ public class ConfigurationLoader {
 		} catch (Exception e) {
 			this.logger.error(CONFIGURATIONLOADER, "Resources file " + (char)34 + json + (char)34 + " could not be parsed as a JSON file.");
 		}
+	}
+	
+	public boolean jsonKeyExists(JSONObject jsonObject, String jsonKey) {
+		if (jsonObject.containsKey(jsonKey)) {
+			return true; 
+		} else {
+			this.logger.error(CONFIGURATIONLOADER, "JSONObject " + (char)34 + jsonObject.toJSONString() + (char)34 + " object doesn't contain key " + (char)34 + jsonKey + (char)34);
+		}
+		return false;
 	}
 	
 	public JSONObject getConfiguration() {
