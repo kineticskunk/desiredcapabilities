@@ -249,7 +249,6 @@ public class LoadFoxDesiredCapabilities {
 		try {
 			logger.log(Level.INFO, FIREFOXDESIREDCAPABILITIES, capabiltiesType.BROWSER_NAME.toString(), value);
 			this.dc.setCapability(CapabilityType.BROWSER_NAME, value);
-
 		} catch (Exception ex) {
 			logger.catching(ex);
 
@@ -262,7 +261,7 @@ public class LoadFoxDesiredCapabilities {
 	 * @author yodaqua
 	 * @param value
 	 */
-	public void setEnrollmentBehaviour(String value) {
+	public void setElementScrollBehaviour(String value) {
 		try {
 			logger.log(Level.INFO, FIREFOXDESIREDCAPABILITIES, capabiltiesType.ELEMENT_SCROLL_BEHAVIOR.toString(), value);
 			this.dc.setCapability(CapabilityType.ELEMENT_SCROLL_BEHAVIOR, Converter.toInteger(value));

@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,6 +15,9 @@ import org.apache.logging.log4j.MarkerManager;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import com.google.common.collect.ImmutableMap;
+import com.kineticskunk.utilities.Converter;
 
 public class ConfigurationLoader {
 	
@@ -46,6 +52,18 @@ public class ConfigurationLoader {
 			this.logger.error(CONFIGURATIONLOADER, "JSONObject " + (char)34 + jsonObject.toJSONString() + (char)34 + " object doesn't contain key " + (char)34 + jsonKey + (char)34);
 		}
 		return false;
+	}
+	
+	public HashMap<String, String> convertJSONtoMap(JSONObject jsonObject) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		Iterator<?> iterator = jsonObject.entrySet().iterator();
+		while (iterator.hasNext()) {
+			Entry<?, ?> entry = (Entry<?, ?>) iterator.next();
+			String key = entry.getKey().toString();
+			String value = entry.getValue().toString();
+			map.put(key, value);
+		}
+		return map;
 	}
 	
 	public JSONObject getConfiguration() {
