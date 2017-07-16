@@ -1,16 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.kineticskunk.auto</groupId>
-  <artifactId>desiredcapabilities</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+	<groupId>com.kineticskunk.auto</groupId>
+	<artifactId>desiredcapabilities</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-  <name>desiredcapabilities</name>
-  <url>http://maven.apache.org</url>
+	<name>desiredcapabilities</name>
+	<url>http://maven.apache.org</url>
 
-  <properties>
+	<properties>
 		<selenium.version>3.4.0</selenium.version>
 		<eclipse.m2e.lifecycle.mapping.version>1.0.0</eclipse.m2e.lifecycle.mapping.version>
 		<maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
@@ -57,46 +57,14 @@
 	</developers>
 
 	<build>
-		<resources>
-			<resource>
-				<directory>resources</directory>
-				<filtering>false</filtering>
-			</resource>
-		</resources>
 		<plugins>
 			<plugin>
-				<groupId>com.github.github</groupId>
-				<artifactId>site-maven-plugin</artifactId>
-				<version>0.12</version>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
 				<configuration>
-					<!-- git commit message -->
-					<message>Maven artifacts for ${project.version}</message>
-					<!-- disable webpage processing -->
-					<noJekyll>true</noJekyll>
-					<!-- matches distribution management repository url above -->
-					<outputDirectory>${project.build.directory}/${mvn.repo.branch}</outputDirectory>
-					<!-- remote branch name -->
-					<branch>refs/heads/mvn-repo</branch>
-					<!-- If you remove this then the old artifact will be removed and new 
-						one will replace. But with the merge tag you can just release by changing 
-						the version -->
-					<merge>true</merge>
-					<includes>
-						<include>**/*</include>
-					</includes>
-					<!-- github repo name -->
-					<repositoryName>${github.repo.name}</repositoryName>
-					<!-- github username -->
-					<repositoryOwner>kineticskunk</repositoryOwner>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>site</goal>
-						</goals>
-						<phase>deploy</phase>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -189,21 +157,6 @@
 				<version>2.1</version>
 			</plugin>
 			<plugin>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.8.1</version>
-				<configuration>
-					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/${mvn.repo.branch}</altDeploymentRepository>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-			<plugin>
 				<!-- Build an executable JAR -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -233,71 +186,154 @@
 					</descriptorRefs>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${maven.surefire.plugin.version}</version>
-				<executions>
-					<execution>
-						<phase>test</phase>
-						<goals>
-							<goal>test</goal>
-						</goals>
-					</execution>
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>org.apache.maven.surefire</groupId>
-						<artifactId>surefire-testng</artifactId>
-						<version>${maven.surefire.plugin.version}</version>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<argLine>-Xmx1024m</argLine>
-					<parallel>suites</parallel>
-					<threadCount>3</threadCount>
-					<systemProperties>
-						<property>
-							<name>url</name>
-							<value>http://www.google.com</value>
-						</property>
-						<property>
-							<name>browserTitle</name>
-							<value>google</value>
-						</property>
-						<property>
-							<name>bringBrowserToFront</name>
-							<value>true</value>
-						</property>
-						<property>
-							<name>resizeBrowser</name>
-							<value>true</value>
-						</property>
-					</systemProperties>
-					<suiteXmlFiles>
-						<suiteXmlFile>DesiredCapabilitiesTestNG.xml</suiteXmlFile>
-					</suiteXmlFiles>
-					<properties>
-						<property>
-							<name>suitethreadpoolsize</name>
-							<value>3</value>
-						</property>
-						<property>
-							<name>usedefaultlisteners</name>
-							<value>false</value>
-						</property>
-						<property>
-							<name>listener</name>
-							<value> org.uncommons.reportng.HTMLReporter,
-								org.uncommons.reportng.JUnitXMLReporter</value>
-						</property>
-					</properties>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
-	
-  	<dependencies>
+
+	<profiles>
+		<profile>
+			<id>debug</id>
+			<build>
+				<resources>
+					<resource>
+						<directory>resources</directory>
+						<filtering>false</filtering>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>${maven.surefire.plugin.version}</version>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<goals>
+									<goal>test</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<argLine>-Xmx1024m</argLine>
+							<parallel>suites</parallel>
+							<threadCount>3</threadCount>
+							<systemProperties>
+								<property>
+									<name>url</name>
+									<value>http://www.google.com</value>
+								</property>
+								<property>
+									<name>browserTitle</name>
+									<value>google</value>
+								</property>
+								<property>
+									<name>bringBrowserToFront</name>
+									<value>true</value>
+								</property>
+								<property>
+									<name>resizeBrowser</name>
+									<value>true</value>
+								</property>
+							</systemProperties>
+							<suiteXmlFiles>
+								<suiteXmlFile>DesiredCapabilitiesTestNG.xml</suiteXmlFile>
+							</suiteXmlFiles>
+							<properties>
+								<property>
+									<name>suitethreadpoolsize</name>
+									<value>3</value>
+								</property>
+								<property>
+									<name>usedefaultlisteners</name>
+									<value>false</value>
+								</property>
+								<property>
+									<name>listener</name>
+									<value> org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
+								</property>
+							</properties>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>localdeploy</id>
+			<build>
+				<resources>
+					<resource>
+						<directory>resources</directory>
+						<filtering>false</filtering>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<artifactId>maven-deploy-plugin</artifactId>
+						<version>2.8.1</version>
+						<configuration>
+							<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/${mvn.repo.branch}</altDeploymentRepository>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>mvndeploy</id>
+			<build>
+				<resources>
+					<resource>
+						<directory>resources</directory>
+						<filtering>false</filtering>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<groupId>com.github.github</groupId>
+						<artifactId>site-maven-plugin</artifactId>
+						<version>0.12</version>
+						<configuration>
+							<!-- git commit message -->
+							<message>Maven artifacts for ${project.version}</message>
+							<!-- disable webpage processing -->
+							<noJekyll>true</noJekyll>
+							<!-- matches distribution management repository url above -->
+							<outputDirectory>${project.build.directory}/${mvn.repo.branch}</outputDirectory>
+							<!-- remote branch name -->
+							<branch>refs/heads/mvn-repo</branch>
+							<!-- If you remove this then the old artifact will be removed and 
+								new one will replace. But with the merge tag you can just release by changing 
+								the version -->
+							<merge>true</merge>
+							<includes>
+								<include>**/*</include>
+							</includes>
+							<!-- github repo name -->
+							<repositoryName>${github.repo.name}</repositoryName>
+							<!-- github username -->
+							<repositoryOwner>kineticskunk</repositoryOwner>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>site</goal>
+								</goals>
+								<phase>deploy</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-deploy-plugin</artifactId>
+						<version>2.8.1</version>
+						<configuration>
+							<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/${mvn.repo.branch}</altDeploymentRepository>
+						</configuration>
+					</plugin>
+				</plugins>
+
+			</build>
+		</profile>
+	</profiles>
+
+	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
