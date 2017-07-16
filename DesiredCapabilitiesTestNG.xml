@@ -18,7 +18,7 @@
 		/> <classes> <class name="com.kineticskunk.auto.desiredcapabilities.LoadDesiredCapabilitiesTestNG" 
 		/> </classes> </test> -->
 
-	<test name="Load Chrome DesiredCapabilities">
+	<!-- <test name="Load Chrome DesiredCapabilities">
 		<parameter name="browserType" value="chrome" />
 		<parameter name="desiredCapabilitiesConfigJSON" value="desiredcapabilties.json" />
 		<classes>
@@ -33,6 +33,6 @@
 			<class
 				name="com.kineticskunk.auto.desiredcapabilities.LoadDesiredCapabilitiesTestNG" />
 		</classes>
-	</test>
+	</test> -->
 
 </suite> <!-- Suite -->

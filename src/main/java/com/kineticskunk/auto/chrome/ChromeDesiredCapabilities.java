@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import com.kineticskunk.auto.desiredcapabilities.DesiredCapabilityException;
-import com.kineticskunk.auto.utilities.ConfigurationLoader;
+import com.kineticskunk.utilities.ConfigurationLoader;
 
 public class ChromeDesiredCapabilities extends ConfigurationLoader  {
 	

@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.MarkerManager;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import com.kineticskunk.auto.utilities.ConfigurationLoader;
+import com.kineticskunk.utilities.ConfigurationLoader;
 import com.kineticskunk.utilities.Converter;
 
 public class LoadFireFoxProfile extends ConfigurationLoader {

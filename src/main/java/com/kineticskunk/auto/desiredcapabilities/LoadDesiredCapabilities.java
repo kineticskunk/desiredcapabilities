@@ -25,7 +25,7 @@ import org.apache.logging.log4j.MarkerManager;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import com.kineticskunk.auto.utilities.ConfigurationLoader;
+import com.kineticskunk.utilities.ConfigurationLoader;
 import com.kineticskunk.utilities.Converter;
 
 public class LoadDesiredCapabilities extends ConfigurationLoader {
