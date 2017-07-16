@@ -22,7 +22,7 @@ public class LoadFireFoxProfile extends ConfigurationLoader {
 	private FirefoxProfile profile = new FirefoxProfile();
 	
 	public LoadFireFoxProfile() {
-		super(JSONFILE);
+		this.loadConfigurationFile(JSONFILE);
 		this.setFirefoxProfile(this.getConfiguration(), JSONKEY);
 	}
 	

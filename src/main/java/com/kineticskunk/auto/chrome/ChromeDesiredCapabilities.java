@@ -26,7 +26,7 @@ public class ChromeDesiredCapabilities extends ConfigurationLoader  {
 	private ChromeOptions options = new ChromeOptions();
 	
 	public ChromeDesiredCapabilities() throws DesiredCapabilityException {
-		super(DESIREDCAPABILITIESJSON);
+		this.loadConfigurationFile(DESIREDCAPABILITIESJSON);
 		this.setChromeOptions(this.getConfiguration(), CHROMEOPTIONS);
 		this.setChromePreferences(this.getConfiguration(), CHROMEPREFERENCES);
 	}
